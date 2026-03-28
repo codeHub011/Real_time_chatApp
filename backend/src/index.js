@@ -19,16 +19,16 @@ const __dirname = path.resolve();
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
-app.use(
-  cors({
-    origin: 
-      
-      "https://real-time-chat-app-npvo.vercel.app",
-       methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-app.options("*", cors());
+app.use(cors({
+  origin: "https://real-time-chat-app-npvo.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true,
+}));
+
+app.options("*", cors({
+  origin: "https://real-time-chat-app-npvo.vercel.app",
+  credentials: true,
+}));
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
