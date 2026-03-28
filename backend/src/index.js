@@ -22,7 +22,7 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "*",
+    origin: "https://real-time-chat-app-npvo.vercel.app/",
     credentials: true,
   })
 );
