@@ -24,11 +24,11 @@ app.use(
     origin: 
       
       "https://real-time-chat-app-npvo.vercel.app",
-    
+       methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
-
+app.options("*", cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
 
